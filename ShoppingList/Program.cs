@@ -15,17 +15,20 @@ while (true)
         {
             case "add":
                 var product = new Product(splitInput[1]);
-                repository.Add(product);
+                await repository.CreateAsync(product);
                 break;
 
             case "delete":
-                repository.Delete(splitInput[1]);
+                await repository.DeleteAsync(splitInput[1]);
                 break;
 
             case "list":
-                var products = repository.GetAll();
-                var print = products.Select(p => p.ToString()).Aggregate((l1, l2) => $"{l1}\n{l2}");
-                Console.WriteLine("\n" + print + "\n");
+                var products = await repository.ReadAsync();
+                if(products.Count > 0)
+                {
+                    var print = products.Select(p => p.ToString()).Aggregate((l1, l2) => $"{l1}\n{l2}");
+                    Console.WriteLine("\n" + print + "\n");
+                }
                 break;
             default:
                 throw new Exception();

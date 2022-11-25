@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.Data.Sqlite;
 
 namespace ShoppingList.Infastructure.Tests
 {
@@ -29,27 +30,29 @@ namespace ShoppingList.Infastructure.Tests
 
 
         [Fact]
-        public void TestAdd()
+        public async Task TestAdd()
         {
             var product = new Product("Apple");
-            repository.Add(product);
 
+            var result = await repository.CreateAsync(product);
+
+            result.Result.Should().BeOfType<Ok>();
             context.Products.Should().Contain(p => p.Name == product.Name);
         }
 
         [Fact]
-        public void TestDelete()
+        public async Task TestDelete()
         {
-            bool deleted = repository.Delete("Orange");
+            var result = await repository.DeleteAsync("Orange");
 
-            deleted.Should().BeTrue();
+            result.Result.Should().BeOfType<NoContent>();
             context.Products.Should().NotContain(p => p.Name == "Orange");
         }
 
         [Fact]
-        public void TestGetAll()
+        public async Task TestGetAll()
         {
-            var products = repository.GetAll();
+            var products = await repository.ReadAsync();
 
             products.Should().BeEquivalentTo(new List<Product>
             {

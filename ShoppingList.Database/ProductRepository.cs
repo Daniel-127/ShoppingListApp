@@ -1,4 +1,7 @@
-﻿using ShoppingList.Core;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
+using ShoppingList.Core;
 
 namespace ShoppingList.Infastructure
 {
@@ -11,29 +14,45 @@ namespace ShoppingList.Infastructure
             this.context = context;
         }
 
-        public void Add(Product product)
+        public async Task<Results<Ok, Conflict<Product>>> CreateAsync(Product product)
         {
-            var p = new ProductEntity { Name = product.Name };
-            context.Products.Add(p);
-            context.SaveChanges();
+            var entity = await context.Products.FirstOrDefaultAsync(p => p.Name == product.Name);
+            if (entity is null)
+            {
+                entity = product.Convert();
+                context.Products.Add(entity);
+                await context.SaveChangesAsync();
+                return TypedResults.Ok();
+            }
+            else
+            {
+                return TypedResults.Conflict(entity.Convert());
+            }
         }
 
-        public bool Delete(string name)
+        public async Task<Results<NoContent, NotFound<string>>> DeleteAsync(string name)
         {
             name = name.ToLower();
-            var product = context.Products.FirstOrDefault(p => p.Name.ToLower() == name);
-            bool exists = product != null;
-            if (exists)
+            var product = await context.Products.FirstOrDefaultAsync(p => p.Name.ToLower() == name);
+            if (product is null)
             {
-                context.Products.Remove(product!);
+                return TypedResults.NotFound(name);
             }
-            context.SaveChanges();
-            return exists;
+            else
+            {
+                context.Products.Remove(product);
+                await context.SaveChangesAsync();
+                return TypedResults.NoContent();
+            }
         }
 
-        public IEnumerable<Product> GetAll()
+        public async Task<IReadOnlyCollection<Product>> ReadAsync()
         {
-            return context.Products.Select(p => new Product(p.Name));
+            var products = from p in context.Products
+                           orderby p.Name
+                           select p.Convert();
+
+            return await products.ToArrayAsync();
         }
     }
 }

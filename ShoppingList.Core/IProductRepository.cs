@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace ShoppingList.Core
 {
     public interface IProductRepository
     {
-        void Add(Product product);
-        bool Delete(string name);
-        IEnumerable<Product> GetAll(); 
+        Task<Results<Ok, Conflict<Product>>> CreateAsync(Product product);
+        Task<Results<NoContent, NotFound<string>>> DeleteAsync(string name);
+        Task<IReadOnlyCollection<Product>> ReadAsync(); 
     }
 }
