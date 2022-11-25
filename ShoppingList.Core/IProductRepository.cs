@@ -8,8 +8,8 @@ namespace ShoppingList.Core
 {
     public interface IProductRepository
     {
-        void Add(ProductDTO product);
+        void Add(Product product);
         bool Delete(string name);
-        IEnumerable<ProductDTO> GetAll(); 
+        IEnumerable<Product> GetAll(); 
     }
 }

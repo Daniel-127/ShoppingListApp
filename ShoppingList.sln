@@ -5,13 +5,15 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList", "ShoppingList\ShoppingList.csproj", "{5B4B32D7-0CC8-4E19-BD53-B6564377CEAC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.Database", "ShoppingList.Database\ShoppingList.Database.csproj", "{0D8C277C-5F61-4C52-84FE-C39ED0667846}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.Infastructure", "ShoppingList.Database\ShoppingList.Infastructure.csproj", "{0D8C277C-5F61-4C52-84FE-C39ED0667846}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.Core", "ShoppingList.Core\ShoppingList.Core.csproj", "{166BF3EA-9353-488B-870F-CA34741F17B0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.Core.Tests", "ShoppingList.Core.Tests\ShoppingList.Core.Tests.csproj", "{6781F48B-B75E-4300-8AB8-48AF34FD9423}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.Infastructure.Tests", "ShoppingList.Core.Tests\ShoppingList.Infastructure.Tests.csproj", "{6781F48B-B75E-4300-8AB8-48AF34FD9423}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.WebApi", "ShoppingList.WebApi\ShoppingList.WebApi.csproj", "{72A0D114-0561-41B5-9027-631836384BA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.Entities", "ShoppingList.Entities\ShoppingList.Entities.csproj", "{839A5420-B394-4484-9FDD-5ECB4ABB0D52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{72A0D114-0561-41B5-9027-631836384BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72A0D114-0561-41B5-9027-631836384BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72A0D114-0561-41B5-9027-631836384BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{839A5420-B394-4484-9FDD-5ECB4ABB0D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{839A5420-B394-4484-9FDD-5ECB4ABB0D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{839A5420-B394-4484-9FDD-5ECB4ABB0D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{839A5420-B394-4484-9FDD-5ECB4ABB0D52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

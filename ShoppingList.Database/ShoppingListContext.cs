@@ -1,15 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ShoppingList.Database
+namespace ShoppingList.Infastructure
 {
     public class ShoppingListContext : DbContext
     {
-        public DbSet<Product> Products => Set<Product>();
+        public DbSet<ProductEntity> Products => Set<ProductEntity>();
         public ShoppingListContext(DbContextOptions<ShoppingListContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

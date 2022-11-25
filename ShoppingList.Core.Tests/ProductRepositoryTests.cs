@@ -1,7 +1,6 @@
-﻿using ShoppingList.Database;
-using Microsoft.Data.Sqlite;
+﻿using Microsoft.Data.Sqlite;
 
-namespace ShoppingList.Core.Tests
+namespace ShoppingList.Infastructure.Tests
 {
     public class ProductRepositoryTests : IDisposable
     {
@@ -21,8 +20,8 @@ namespace ShoppingList.Core.Tests
 
             repository = new ProductRepository(context);
 
-            var p1 = new Product { Name = "Orange" };
-            var p2 = new Product { Name = "Banana" };
+            var p1 = new ProductEntity { Name = "Orange" };
+            var p2 = new ProductEntity { Name = "Banana" };
 
             context.Products.AddRange(p1, p2);
             context.SaveChanges();
@@ -32,7 +31,7 @@ namespace ShoppingList.Core.Tests
         [Fact]
         public void TestAdd()
         {
-            var product = new ProductDTO("Apple");
+            var product = new Product("Apple");
             repository.Add(product);
 
             context.Products.Should().Contain(p => p.Name == product.Name);
@@ -52,10 +51,10 @@ namespace ShoppingList.Core.Tests
         {
             var products = repository.GetAll();
 
-            products.Should().BeEquivalentTo(new List<ProductDTO>
+            products.Should().BeEquivalentTo(new List<Product>
             {
-                new ProductDTO("Orange"),
-                new ProductDTO("Banana"),
+                new Product("Orange"),
+                new Product("Banana"),
             });
         }
 

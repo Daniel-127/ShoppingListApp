@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ShoppingList.Core;
 
-namespace ShoppingList.Core
+namespace ShoppingList.Infastructure
 {
     public class ProductRepository : IProductRepository
     {
@@ -15,9 +11,9 @@ namespace ShoppingList.Core
             this.context = context;
         }
 
-        public void Add(ProductDTO product)
+        public void Add(Product product)
         {
-            var p = new Product { Name= product.Name };
+            var p = new ProductEntity { Name = product.Name };
             context.Products.Add(p);
             context.SaveChanges();
         }
@@ -35,9 +31,9 @@ namespace ShoppingList.Core
             return exists;
         }
 
-        public IEnumerable<ProductDTO> GetAll()
+        public IEnumerable<Product> GetAll()
         {
-            return context.Products.Select(p => new ProductDTO(p.Name));
+            return context.Products.Select(p => new Product(p.Name));
         }
     }
 }

@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace ShoppingList.Core
 {
-    public record ProductDTO(string Name);
+    public record Product(string Name);
 }

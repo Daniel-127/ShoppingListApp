@@ -12,4 +12,9 @@
     <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ShoppingList.Core\ShoppingList.Core.csproj" />
+    <ProjectReference Include="..\ShoppingList.Entities\ShoppingList.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

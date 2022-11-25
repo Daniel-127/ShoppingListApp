@@ -1,4 +1,4 @@
-﻿using ShoppingList.Database;
+﻿using ShoppingList.Infastructure;
 using ShoppingList.Core;
 
 var context = ShoppingListContextFactory.CreateInMemoryDbContext();
@@ -14,7 +14,7 @@ while (true)
         switch (splitInput[0].ToLower())
         {
             case "add":
-                var product = new ProductDTO(splitInput[1]);
+                var product = new Product(splitInput[1]);
                 repository.Add(product);
                 break;
 
