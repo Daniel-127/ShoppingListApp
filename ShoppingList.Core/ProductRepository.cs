@@ -17,7 +17,7 @@ namespace ShoppingList.Core
 
         public void Add(ProductDTO product)
         {
-            var p = new Product { Name= product.Name, Price = product.price };
+            var p = new Product { Name= product.Name };
             context.Products.Add(p);
             context.SaveChanges();
         }
@@ -37,7 +37,7 @@ namespace ShoppingList.Core
 
         public IEnumerable<ProductDTO> GetAll()
         {
-            return context.Products.Select(p => new ProductDTO(p.Name, p.Price));
+            return context.Products.Select(p => new ProductDTO(p.Name));
         }
     }
 }

@@ -14,7 +14,7 @@ while (true)
         switch (splitInput[0].ToLower())
         {
             case "add":
-                var product = new ProductDTO(splitInput[1], double.Parse(splitInput[2]));
+                var product = new ProductDTO(splitInput[1]);
                 repository.Add(product);
                 break;
 

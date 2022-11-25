@@ -21,8 +21,8 @@ namespace ShoppingList.Core.Tests
 
             repository = new ProductRepository(context);
 
-            var p1 = new Product { Name = "Orange", Price = 3 };
-            var p2 = new Product { Name = "Banana", Price = 4 };
+            var p1 = new Product { Name = "Orange" };
+            var p2 = new Product { Name = "Banana" };
 
             context.Products.AddRange(p1, p2);
             context.SaveChanges();
@@ -32,10 +32,10 @@ namespace ShoppingList.Core.Tests
         [Fact]
         public void TestAdd()
         {
-            var product = new ProductDTO("Apple", 2);
+            var product = new ProductDTO("Apple");
             repository.Add(product);
 
-            context.Products.Should().Contain(p => p.Name == product.Name & p.Price == product.price);
+            context.Products.Should().Contain(p => p.Name == product.Name);
         }
 
         [Fact]
@@ -54,8 +54,8 @@ namespace ShoppingList.Core.Tests
 
             products.Should().BeEquivalentTo(new List<ProductDTO>
             {
-                new ProductDTO("Orange", 3),
-                new ProductDTO("Banana", 4),
+                new ProductDTO("Orange"),
+                new ProductDTO("Banana"),
             });
         }
 
