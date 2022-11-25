@@ -14,6 +14,7 @@ namespace ShoppingList.Infastructure.Tests
             connection.Open();
 
             var builder = new DbContextOptionsBuilder<ShoppingListContext>();
+            builder.EnableSensitiveDataLogging();
             builder.UseSqlite(connection);
 
             context = new ShoppingListContext(builder.Options);
@@ -30,7 +31,7 @@ namespace ShoppingList.Infastructure.Tests
 
 
         [Fact]
-        public async Task TestAdd()
+        public async Task TestAdd_Ok()
         {
             var product = new Product("Apple");
 
@@ -41,7 +42,19 @@ namespace ShoppingList.Infastructure.Tests
         }
 
         [Fact]
-        public async Task TestDelete()
+        public async Task TestAdd_Conflict()
+        {
+            var product = new Product("Orange");
+
+            var result = await repository.CreateAsync(product);
+
+            result.Result.Should().BeOfType<Conflict<Product>>();
+            var conflict = result.Result as Conflict<Product>;
+            conflict!.Value.Should().Be(new Product("Orange"));
+        }
+
+        [Fact]
+        public async Task TestDelete_NoContent()
         {
             var result = await repository.DeleteAsync("Orange");
 
@@ -50,7 +63,17 @@ namespace ShoppingList.Infastructure.Tests
         }
 
         [Fact]
-        public async Task TestGetAll()
+        public async Task TestDelete_NotFound()
+        {
+            var result = await repository.DeleteAsync("Apple");
+
+            result.Result.Should().BeOfType<NotFound<string>>();
+            var notFound = result.Result as NotFound<string>;
+            notFound!.Value.Should().Be("Apple");
+        }
+
+        [Fact]
+        public async Task TestRead()
         {
             var products = await repository.ReadAsync();
 
