@@ -17,17 +17,27 @@ namespace ShoppingList.Core
 
         public void Add(ProductDTO product)
         {
-            throw new NotImplementedException();
+            var p = new Product { Name= product.Name, Price = product.price };
+            context.Products.Add(p);
+            context.SaveChanges();
         }
 
         public bool Delete(string name)
         {
-            throw new NotImplementedException();
+            name = name.ToLower();
+            var product = context.Products.FirstOrDefault(p => p.Name.ToLower() == name);
+            bool exists = product != null;
+            if (exists)
+            {
+                context.Products.Remove(product!);
+            }
+            context.SaveChanges();
+            return exists;
         }
 
         public IEnumerable<ProductDTO> GetAll()
         {
-            throw new NotImplementedException();
+            return context.Products.Select(p => new ProductDTO(p.Name, p.Price));
         }
     }
 }
