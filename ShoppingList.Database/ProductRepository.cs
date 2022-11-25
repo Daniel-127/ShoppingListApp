@@ -16,7 +16,7 @@ namespace ShoppingList.Infastructure
 
         public async Task<Results<Ok, Conflict<Product>>> CreateAsync(Product product)
         {
-            var entity = await context.Products.FirstOrDefaultAsync(p => p.Name == product.Name);
+            var entity = await context.Products.FindAsync(product.Name);
             if (entity is null)
             {
                 entity = product.Convert();
@@ -32,8 +32,7 @@ namespace ShoppingList.Infastructure
 
         public async Task<Results<NoContent, NotFound<string>>> DeleteAsync(string name)
         {
-            name = name.ToLower();
-            var product = await context.Products.FirstOrDefaultAsync(p => p.Name.ToLower() == name);
+            var product = await context.Products.FindAsync(name);
             if (product is null)
             {
                 return TypedResults.NotFound(name);

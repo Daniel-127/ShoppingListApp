@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ShoppingList.Infastructure
 {
     public class ProductEntity
     {
-        public int Id { get; set; }
+        [Key]
         public required string Name { get; set; }
     }
 }
