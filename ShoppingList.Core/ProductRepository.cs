@@ -8,6 +8,13 @@ namespace ShoppingList.Core
 {
     public class ProductRepository : IProductRepository
     {
+        private readonly ShoppingListContext context;
+
+        public ProductRepository(ShoppingListContext context) 
+        {
+            this.context = context;
+        }
+
         public void Add(ProductDTO product)
         {
             throw new NotImplementedException();
