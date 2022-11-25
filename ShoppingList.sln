@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList", "ShoppingList\ShoppingList.csproj", "{5B4B32D7-0CC8-4E19-BD53-B6564377CEAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList", "ShoppingList\ShoppingList.csproj", "{5B4B32D7-0CC8-4E19-BD53-B6564377CEAC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.Database", "ShoppingList.Database\ShoppingList.Database.csproj", "{0D8C277C-5F61-4C52-84FE-C39ED0667846}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.Core", "ShoppingList.Core\ShoppingList.Core.csproj", "{166BF3EA-9353-488B-870F-CA34741F17B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{5B4B32D7-0CC8-4E19-BD53-B6564377CEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B4B32D7-0CC8-4E19-BD53-B6564377CEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B4B32D7-0CC8-4E19-BD53-B6564377CEAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D8C277C-5F61-4C52-84FE-C39ED0667846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D8C277C-5F61-4C52-84FE-C39ED0667846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D8C277C-5F61-4C52-84FE-C39ED0667846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D8C277C-5F61-4C52-84FE-C39ED0667846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{166BF3EA-9353-488B-870F-CA34741F17B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{166BF3EA-9353-488B-870F-CA34741F17B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{166BF3EA-9353-488B-870F-CA34741F17B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{166BF3EA-9353-488B-870F-CA34741F17B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
