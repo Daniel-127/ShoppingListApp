@@ -13,20 +13,20 @@ namespace ShoppingList.Infastructure.Tests
             var connection = new SqliteConnection("Filename=:memory:");
             connection.Open();
 
-            var builder = new DbContextOptionsBuilder<ShoppingListContext>();
-            builder.EnableSensitiveDataLogging();
-            builder.UseSqlite(connection);
+            var options = new DbContextOptionsBuilder<ShoppingListContext>();
+            options.UseSqlite(connection);
 
-            context = new ShoppingListContext(builder.Options);
+            context = new ShoppingListContext(options.Options);
             context.Database.EnsureCreated();
-
-            repository = new ProductRepository(context);
 
             var p1 = new ProductEntity { Name = "Orange" };
             var p2 = new ProductEntity { Name = "Banana" };
 
             context.Products.AddRange(p1, p2);
             context.SaveChanges();
+
+            context = new ShoppingListContext(options.Options);
+            repository = new ProductRepository(context);
         }
 
 
@@ -56,7 +56,7 @@ namespace ShoppingList.Infastructure.Tests
         [Fact]
         public async Task TestAdd_CaseInsensitive_Conflict()
         {
-            var product = new Product("oRAngE");
+            var product = new Product("orange");
 
             var result = await repository.CreateAsync(product);
 

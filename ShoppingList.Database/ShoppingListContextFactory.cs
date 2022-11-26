@@ -11,22 +11,13 @@ namespace ShoppingList.Infastructure
             var conn = new SqliteConnection("Filename=:memory:");
             conn.Open();
 
-            var builder = new DbContextOptionsBuilder<ShoppingListContext>();
-            builder.UseSqlite(conn);
-
-            var context = new ShoppingListContext(builder.Options);
-            context.Database.EnsureCreated();
-
             return conn;
         });
 
         public static ShoppingListContext CreateInMemoryDbContext()
         {
-            var connection = new SqliteConnection("Filename=:memory:");
-            connection.Open();
-
             var builder = new DbContextOptionsBuilder<ShoppingListContext>();
-            builder.UseSqlite(connection);
+            builder.UseSqlite(SqliteConn.Value);
 
             var context = new ShoppingListContext(builder.Options);
             context.Database.EnsureCreated();
