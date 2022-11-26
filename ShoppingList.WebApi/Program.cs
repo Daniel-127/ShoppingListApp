@@ -30,3 +30,5 @@ products.MapPost("", async (Product product, IProductRepository repository) => a
 products.MapDelete("/{name}", async (string name, IProductRepository repository) => await repository.DeleteAsync(name));
 
 app.Run();
+
+public partial class Program { }

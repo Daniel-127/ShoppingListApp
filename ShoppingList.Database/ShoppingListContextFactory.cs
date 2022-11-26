@@ -1,9 +1,10 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace ShoppingList.Infastructure
 {
-    public class ShoppingListContextFactory
+    public class ShoppingListContextFactory : IDesignTimeDbContextFactory<ShoppingListContext>
     {
         public readonly static Lazy<SqliteConnection> SqliteConn = new Lazy<SqliteConnection>(() => 
         {
@@ -31,6 +32,11 @@ namespace ShoppingList.Infastructure
             context.Database.EnsureCreated();
 
             return context;
+        }
+
+        public ShoppingListContext CreateDbContext(string[] args)
+        {
+            throw new NotImplementedException();
         }
     }
 }
