@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace ShoppingList.Infastructure
 {
@@ -9,6 +10,14 @@ namespace ShoppingList.Infastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ProductEntity>(e =>
+            {
+                e.Property(e => e.Name).Metadata.SetValueComparer(new ValueComparer<string>(
+                    (n1, n2) => string.Equals(n1, n2, StringComparison.OrdinalIgnoreCase),
+                    n => n.ToUpper().GetHashCode(),
+                    n => n
+                ));
+            });
         }
     }
 }

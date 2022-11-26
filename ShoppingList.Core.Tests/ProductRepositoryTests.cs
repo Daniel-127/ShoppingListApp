@@ -54,9 +54,30 @@ namespace ShoppingList.Infastructure.Tests
         }
 
         [Fact]
+        public async Task TestAdd_CaseInsensitive_Conflict()
+        {
+            var product = new Product("oRAngE");
+
+            var result = await repository.CreateAsync(product);
+
+            result.Result.Should().BeOfType<Conflict<Product>>();
+            var conflict = result.Result as Conflict<Product>;
+            conflict!.Value.Should().Be(new Product("Orange"));
+        }
+
+        [Fact]
         public async Task TestDelete_NoContent()
         {
             var result = await repository.DeleteAsync("Orange");
+
+            result.Result.Should().BeOfType<NoContent>();
+            context.Products.Should().NotContain(p => p.Name == "Orange");
+        }
+
+        [Fact]
+        public async Task TestDelete_CaseInsensitive_NoContent()
+        {
+            var result = await repository.DeleteAsync("orAnGe");
 
             result.Result.Should().BeOfType<NoContent>();
             context.Products.Should().NotContain(p => p.Name == "Orange");
