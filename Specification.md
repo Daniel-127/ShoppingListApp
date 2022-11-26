@@ -5,6 +5,7 @@ Iteration 1
 - Listing, adding and removing products each need a corresponding unit test.
 
 Iteration 2
-- Refactor the list, add and remove methods to be restful and expose them with a web api.
+- Refactor the list, add and remove methods to follow the rest protocol and expose them with a web api.
 - Add unit tests that cover the new posibilties of the refactored methods.
 - Implement integration tests that access the web api through a HttpClient.
+- Disallow products having the same name (case insensitive)
