@@ -25,7 +25,6 @@ namespace ShoppingList.Infastructure.Tests
             context.Products.AddRange(p1, p2);
             context.SaveChanges();
 
-            context = new ShoppingListContext(options.Options);
             repository = new ProductRepository(context);
         }
 
