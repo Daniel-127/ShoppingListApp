@@ -10,22 +10,15 @@ namespace ShoppingList.Infastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ProductEntity>().HasKey(e => e.Name);
-            modelBuilder.Entity<ProductEntity>(e =>
+            modelBuilder.Entity<ProductEntity>().HasKey(e => e.KeyName);
+            /*modelBuilder.Entity<ProductEntity>(e =>
             {
-                e.Property(e => e.Name).Metadata.SetValueComparer(new ValueComparer<string>(
-                    (n1, n2) => test(n1, n2),
-                    n => n.ToUpper().GetHashCode(),
-                    n => n
+                e.Property(p => p.Name).Metadata.SetValueComparer(new ValueComparer<string>(
+                    (s1, s2) => string.Equals(s1, s2, StringComparison.OrdinalIgnoreCase),
+                    s => s.ToUpper().GetHashCode(),
+                    s => s
                 ));
-            });
-        }
-
-        private bool test(string? s1, string? s2)
-        {
-            bool value = string.Equals(s1, s2, StringComparison.OrdinalIgnoreCase);
-            Console.WriteLine($"{s1} == {s2} is {value}");
-            return value;
+            });*/
         }
     }
 }

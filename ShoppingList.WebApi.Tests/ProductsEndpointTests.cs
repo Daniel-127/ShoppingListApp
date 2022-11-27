@@ -85,9 +85,9 @@ namespace ShoppingList.WebApi.Tests
         [Fact, TestPriority(7)]
         public async Task TestPost_CaseInsensitive_Conflict()
         {
-            var response = await client.DeleteAsync("products/orange");
+            var response = await client.PostAsJsonAsync("products", new Product("orange"));
 
-            response.StatusCode.Should().Be(HttpStatusCode.OK);
+            response.StatusCode.Should().Be(HttpStatusCode.Conflict);
         }
     }
 }

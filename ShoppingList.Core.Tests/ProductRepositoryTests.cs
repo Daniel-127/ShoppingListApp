@@ -19,8 +19,8 @@ namespace ShoppingList.Infastructure.Tests
             context = new ShoppingListContext(options.Options);
             context.Database.EnsureCreated();
 
-            var p1 = new ProductEntity { Name = "Orange" };
-            var p2 = new ProductEntity { Name = "Banana" };
+            var p1 = new Product("Orange").Convert();
+            var p2 = new Product("Banana").Convert();
 
             context.Products.AddRange(p1, p2);
             context.SaveChanges();

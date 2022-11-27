@@ -20,8 +20,8 @@ namespace ShoppingList.WebApi.Tests
             using var scope = Services.CreateAsyncScope();
             using var context = scope.ServiceProvider.GetRequiredService<ShoppingListContext>();
 
-            var p1 = new ProductEntity { Name = "Apple" };
-            var p2 = new ProductEntity { Name = "Orange" };
+            var p1 = new Product("Apple").Convert();
+            var p2 = new Product("Orange").Convert();
             context.Products.AddRange(p1, p2);
             
             await context.SaveChangesAsync();
