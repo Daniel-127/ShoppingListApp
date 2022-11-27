@@ -4,7 +4,7 @@ namespace ShoppingList.Infastructure
 {
     public class ProductEntity
     {
-        [Key]
+        public required string KeyName { get; set; }
         public required string Name { get; set; }
     }
 }

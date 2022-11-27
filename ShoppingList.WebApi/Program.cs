@@ -14,8 +14,12 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+var scope = app.Services.CreateScope();
+var context = scope.ServiceProvider.GetRequiredService<ShoppingListContext>();
+context.Database.EnsureCreated();
+
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();

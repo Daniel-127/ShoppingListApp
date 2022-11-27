@@ -73,5 +73,21 @@ namespace ShoppingList.WebApi.Tests
                 new Product("Orange")
             });
         }
+
+        [Fact, TestPriority(6)]
+        public async Task TestDelete_CaseInsensetive_NoContent()
+        {
+            var response = await client.DeleteAsync("products/banana");
+
+            response.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        }
+
+        [Fact, TestPriority(7)]
+        public async Task TestPost_CaseInsensitive_Conflict()
+        {
+            var response = await client.PostAsJsonAsync("products", new Product("orange"));
+
+            response.StatusCode.Should().Be(HttpStatusCode.Conflict);
+        }
     }
 }
