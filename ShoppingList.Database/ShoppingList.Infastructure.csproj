@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.0" />
@@ -15,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShoppingList.Core\ShoppingList.Core.csproj" />
-    <ProjectReference Include="..\ShoppingList.Entities\ShoppingList.Entities.csproj" />
   </ItemGroup>
 
 </Project>

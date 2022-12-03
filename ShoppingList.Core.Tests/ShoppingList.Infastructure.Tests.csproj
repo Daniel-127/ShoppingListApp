@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShoppingList.Database\ShoppingList.Infastructure.csproj" />
-    <ProjectReference Include="..\ShoppingList.Entities\ShoppingList.Entities.csproj" />
     <ProjectReference Include="..\ShoppingList.Core\ShoppingList.Core.csproj" />
   </ItemGroup>
 
