@@ -1,0 +1,53 @@
+﻿@*<div class="container-fluid">
+    <div class="row my-5">
+        <div class="col-lg-6 col-xl-4 offset-lg-3 offset-xl-4">
+            <RadzenCard Class="m-3">
+                <div class="d-flex flex-row p-3">
+                    <div>
+                        <RadzenText TextStyle="TextStyle.Overline" Class="d-flex mt-1 mb-0">Employee</RadzenText>
+                        <RadzenText TextStyle="TextStyle.Body1"><b>@("Name")</b></RadzenText>
+                        <RadzenText TextStyle="TextStyle.Overline" Class="d-flex mt-3 mb-0">Company</RadzenText>
+                        <RadzenText TextStyle="TextStyle.Body1"><b>@("CompanyName")</b></RadzenText>
+                    </div>
+                </div>
+                <RadzenCard Class="my-3 rz-background-color-primary-lighter rz-shadow-0 rz-border-radius-0" style="margin: 0 calc(-1 * var(--rz-card-padding)); padding: 2rem;">
+                    <RadzenText TextStyle="TextStyle.H6" Class="rz-dcolor-primary-light"><strong>Delivery Information</strong></RadzenText>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <RadzenText TextStyle="TextStyle.Overline" Class="rz-color-primary-light d-flex mt-3 mb-0">Country</RadzenText>
+                            <RadzenText TextStyle="TextStyle.Body1"><b>@("ShipCountry")</b></RadzenText>
+                            <RadzenText TextStyle="TextStyle.Overline" Class="rz-color-primary-light d-flex mt-3 mb-0">City</RadzenText>
+                            <RadzenText TextStyle="TextStyle.Body1"><b>@("ShipCity")</b></RadzenText>
+                        </div>
+                        <div class="col-md-8">
+                            <RadzenText TextStyle="TextStyle.Overline" Class="rz-color-primary-light d-flex mt-3 mb-0">Ship name</RadzenText>
+                            <RadzenText TextStyle="TextStyle.Body1"><b>@("ShipName")</b></RadzenText>
+                            <RadzenText TextStyle="TextStyle.Overline" Class="rz-color-primary-light d-flex mt-3 mb-0">Freight</RadzenText>
+                            <RadzenText TextStyle="TextStyle.Body1"><b>@("$32")</b></RadzenText>
+                        </div>
+                    </div>
+                </RadzenCard>
+                <div class="text-end">
+                    <RadzenButton Variant="Variant.Text" Class="rz-text-secondary-color" Text="Cancel" />
+                    <RadzenButton Variant="Variant.Text" Text="Send" />
+                </div>
+            </RadzenCard>
+
+        </div>
+    </div>
+</div>*@
+
+<RadzenCard class="m-3 rz-shadow-1" @onclick=OnClick>
+	<RadzenText TextStyle="TextStyle.Overline" Class="d-flex mt-1 mb-0">Name</RadzenText>
+	<RadzenText TextStyle="TextStyle.Body1"><b>@Product.Name</b></RadzenText>
+</RadzenCard>
+
+@code {
+    [Parameter]
+    public Product Product { get; set; }
+
+    void OnClick()
+    {
+        Product = new Product(Product.Name.Reverse().Select(c => c.ToString()).Aggregate((s1, s2) => s1 + s2));
+    }
+}

@@ -1,8 +1,8 @@
 ﻿using ShoppingList.Core;
 
-namespace ShoppingList.App.Data
+namespace ShoppingList.RazorComponents
 {
-    internal interface IShoppingListService
+    public interface IShoppingListService
     {
         Task<bool> Add(Product product);
 

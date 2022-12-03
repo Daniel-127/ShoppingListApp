@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ShoppingList.App.Data;
+using ShoppingList.RazorComponents;
 
 namespace ShoppingList.App
 {

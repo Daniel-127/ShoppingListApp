@@ -1,0 +1,40 @@
+﻿@inject IShoppingListService service
+
+
+<div class="container">
+    <div class="row row-cols-sm-2 row-cols-md-4 row-cols-lg-6 gy-4 gx-4">
+        @foreach(var product in products){
+            <div class="col">
+                <RadzenCard class="rz-shadow-1">
+	                <RadzenText TextStyle="TextStyle.Overline" Class="d-flex mt-1 mb-0">Name</RadzenText>
+                    <RadzenText TextStyle="TextStyle.Body1"><b>@product.Name</b></RadzenText>
+                </RadzenCard>
+            </div>
+        }
+        <div class="col">
+            <RadzenButton Icon="add" ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Large" />
+        </div>
+    </div>
+</div>
+
+@*<RadzenDataList WrapItems="true" AllowPaging="false" Data="@products" TItem="Product">
+    <Template Context="product">
+        <ProductCard Product="product"></ProductCard>
+    </Template>
+</RadzenDataList>
+<RadzenButton Icon="add" ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Large" />*@
+
+@code {
+    IEnumerable<Product> products { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        (products, var newDataTask) = service.GetProducts();
+        var (newData, data) = await newDataTask;
+        if (newData)
+        {
+            products = data;
+        }
+        await base.OnInitializedAsync();
+    }
+}
