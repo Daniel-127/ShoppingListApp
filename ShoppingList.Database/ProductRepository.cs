@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using ShoppingList.Core;
 
-namespace ShoppingList.Infastructure
+namespace ShoppingList.Infrastructure
 {
     public class ProductRepository : IProductRepository
     {

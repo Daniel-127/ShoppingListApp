@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace ShoppingList.Infastructure
+namespace ShoppingList.Infrastructure
 {
     public class ShoppingListContextFactory : IDesignTimeDbContextFactory<ShoppingListContext>
     {

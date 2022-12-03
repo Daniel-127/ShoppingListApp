@@ -1,4 +1,4 @@
-﻿namespace ShoppingList.Infastructure
+﻿namespace ShoppingList.Infrastructure
 {
 	public class ProductEntity
 	{

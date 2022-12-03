@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Data.Sqlite;
 
-namespace ShoppingList.Infastructure.Tests
+namespace ShoppingList.Infrastructure.Tests
 {
     public class ProductRepositoryTests : IDisposable
     {

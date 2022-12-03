@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace ShoppingList.Infastructure
+namespace ShoppingList.Infrastructure
 {
 	public class ShoppingListContext : DbContext
     {

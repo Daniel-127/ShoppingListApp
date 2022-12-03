@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShoppingList.Core\ShoppingList.Core.csproj" />
-    <ProjectReference Include="..\ShoppingList.Database\ShoppingList.Infastructure.csproj" />
+    <ProjectReference Include="..\ShoppingList.Database\ShoppingList.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

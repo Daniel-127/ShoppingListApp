@@ -5,11 +5,11 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList", "ShoppingList\ShoppingList.csproj", "{5B4B32D7-0CC8-4E19-BD53-B6564377CEAC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.Infastructure", "ShoppingList.Database\ShoppingList.Infastructure.csproj", "{0D8C277C-5F61-4C52-84FE-C39ED0667846}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.Infrastructure", "ShoppingList.Database\ShoppingList.Infrastructure.csproj", "{0D8C277C-5F61-4C52-84FE-C39ED0667846}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.Core", "ShoppingList.Core\ShoppingList.Core.csproj", "{166BF3EA-9353-488B-870F-CA34741F17B0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.Infastructure.Tests", "ShoppingList.Core.Tests\ShoppingList.Infastructure.Tests.csproj", "{6781F48B-B75E-4300-8AB8-48AF34FD9423}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.Infrastructure.Tests", "ShoppingList.Core.Tests\ShoppingList.Infrastructure.Tests.csproj", "{6781F48B-B75E-4300-8AB8-48AF34FD9423}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingList.WebApi", "ShoppingList.WebApi\ShoppingList.WebApi.csproj", "{72A0D114-0561-41B5-9027-631836384BA1}"
 EndProject

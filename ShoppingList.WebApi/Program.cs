@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ShoppingList.Core;
-using ShoppingList.Infastructure;
+using ShoppingList.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using ShoppingList.Core;
 
-namespace ShoppingList.Infastructure
+namespace ShoppingList.Infrastructure
 {
     public interface IProductRepository
     {

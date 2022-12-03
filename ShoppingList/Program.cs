@@ -1,4 +1,4 @@
-﻿using ShoppingList.Infastructure;
+﻿using ShoppingList.Infrastructure;
 using ShoppingList.Core;
 
 var context = ShoppingListContextFactory.CreateInMemoryDbContext();
