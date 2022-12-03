@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace ShoppingList.App
+namespace ShoppingList.App.Platforms.iOS
 {
 	public class Program
 	{

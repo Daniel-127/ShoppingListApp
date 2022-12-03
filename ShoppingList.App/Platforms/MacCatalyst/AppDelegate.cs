@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace ShoppingList.App
+namespace ShoppingList.App.Platforms.MacCatalyst
 {
 	[Register("AppDelegate")]
 	public class AppDelegate : MauiUIApplicationDelegate

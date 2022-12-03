@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace ShoppingList.App
+namespace ShoppingList.App.Platforms.MacCatalyst
 {
 	public class Program
 	{
